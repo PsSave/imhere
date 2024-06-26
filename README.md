@@ -33,4 +33,4 @@ yarn global add react-native-cli
 
 Pedro Samuel - [pedrosviki1265@gmail.com](mailto:email@example.com)
 
-Link do Projeto: [https://github.com/PsSave/IMHERE](https://github.com/seu_usuario/IMHERE)
+Link do Projeto: [https://github.com/PsSave/imhere](https://github.com/seu_usuario/IMHERE)
