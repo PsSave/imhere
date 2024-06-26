@@ -1,9 +1,8 @@
 # IMHERE
 
 ![Badge](https://img.shields.io/badge/React%20Native-0.63-blue)
-![Badge](https://img.shields.io/badge/Node.js-v14.15.1-green)
-![Badge](https://img.shields.io/badge/npm-v6.14.8-red)
-![Badge](https://img.shields.io/badge/yarn-v1.22.5-blue)
+![Badge](https://img.shields.io/badge/Node.js-v18.17.1-green)
+![Badge](https://img.shields.io/badge/npm-v9.6.7-red)
 
 ## Sobre o Projeto
 
@@ -14,8 +13,7 @@ IMHERE é um aplicativo de eventos criado com React Native. Ele permite que os u
 - [React Native](https://reactnative.dev/)
 - [Node.js](https://nodejs.org/en/)
 - [npm](https://www.npmjs.com/)
-- [yarn](https://yarnpkg.com/)
-
+  
 ## Como Começar
 
 ### Pré-requisitos
@@ -29,8 +27,45 @@ npm install -g react-native-cli
 # ou
 yarn global add react-native-cli
 ````
+
+## Componentes
+
+### Participant
+
+Este componente é responsável por exibir o nome do participante e um botão para removê-lo. Ele é gerado cada vez que um novo participante é adicionado ao evento.
+
+Aqui está um exemplo de como o componente é estruturado:
+
+```jsx
+import { View, Text, TouchableOpacity } from "react-native";
+import React from "react";
+
+import { styles } from "./styles";
+
+type ParticipantProps = {
+  name: string;
+  onRemove: () => void;
+};
+
+export default function Participant({ name, onRemove }: ParticipantProps) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.name}>{name}</Text>
+      <TouchableOpacity style={styles.button} onPress={onRemove}>
+        <Text style={styles.buttonText}>-</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+export default Participant;
+```
+
 ## Contato
 
-Pedro Samuel - [pedrosviki1265@gmail.com](mailto:email@example.com)
+Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para me alcançar:
 
-Link do Projeto: [https://github.com/PsSave/imhere](https://github.com/seu_usuario/IMHERE)
+- [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:pedrosviki1265@gmail.com)
+- [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/0000001save/?hl=pt-br)
+- [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/me/)
+
+Ou você pode abrir uma issue diretamente no GitHub.
