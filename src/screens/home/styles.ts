@@ -19,26 +19,40 @@ export const styles = StyleSheet.create({
     color: "#c4c4c4",
   },
 
+  inputContainer: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 18,
+    marginTop: 24,
+    paddingBottom: 28,
+    marginBottom: 24,
+    borderBottomColor: "#999999",
+    borderBottomWidth: 1,
+  },
+
   input: {
+    flex: 1,
     backgroundColor: "#1F1E25",
     color: "#f5f5f5",
     fontSize: 18,
     borderRadius: 5,
     padding: 12,
-    marginTop: 15,
   },
 
   button: {
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#31cf67",
     borderRadius: 5,
-    padding: 12,
-    marginTop: 15,
+    width: 56,
+    height: 56,
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   buttonText: {
-    color: "#131313",
+    color: "#f5f5f5",
     fontWeight: "bold",
-    fontSize: 18,
-    textAlign: "center",
+    fontSize: 24,
   },
 });
