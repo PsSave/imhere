@@ -59,6 +59,62 @@ export default function Participant({ name, onRemove }: ParticipantProps) {
 }
 export default Participant;
 ```
+## Progresso do Projeto
+
+### Primeira Etapa - Concluída
+
+Na primeira etapa do projeto IMHERE, consegui implementar várias funcionalidades e recursos importantes, como:
+
+#### FlatList
+
+A `FlatList` é um componente simples que permite exibir uma lista rolável de dados similares. É muito útil para exibir longas listas de dados de maneira eficiente.
+
+Aqui está um exemplo de como usar a `FlatList`:
+
+```jsx
+import { FlatList } from "react-native";
+
+<FlatList
+  data={data}
+  renderItem={({ item }) => <Item title={item.title} />}
+  keyExtractor={item => item.id}
+/>
+```
+#### Alerts
+
+Os `Alerts` são usados para fornecer feedback ao usuário durante várias interações no aplicativo.
+
+Aqui está um exemplo de como usar `Alerts`:
+
+```jsx
+import { Alert } from "react-native";
+
+Alert.alert(
+  "Título do Alerta",
+  "Mensagem do Alerta",
+  [
+    {
+      text: "Cancelar",
+      onPress: () => console.log("Cancel Pressed"),
+      style: "cancel"
+    },
+    { text: "OK", onPress: () => console.log("OK Pressed") }
+  ],
+  { cancelable: false }
+);
+```
+#### StatusBar
+
+A `StatusBar` é usada para exibir a barra de status do sistema no aplicativo.
+
+Aqui está um exemplo de como usamos a `StatusBar`:
+
+```jsx
+import { StatusBar } from "react-native";
+
+<StatusBar barStyle="dark-content" />
+```
+Sendo assim, finalizado a primeira etapa do projeto.
 
 ## Contato
 
