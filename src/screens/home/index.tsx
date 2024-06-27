@@ -8,44 +8,47 @@ import {
 } from "react-native";
 import { styles } from "./styles";
 import Participant from "../../components/Participant";
+import { useState } from "react";
 
 export default function Home() {
-  const participants = [
-    "Pedro Samuel",
-    "Milton",
-    "Zé cadunga",
-    "Oreia",
-    "Ana",
-    "Vitor",
-    "Laura",
-    "Hubsom",
-    "Ednaldo Pereira",
-    "Ruyter",
-    "Ash",
-  ];
+  const [participants, setParticipants] = useState<string[]>([]);
+  const [participant, setParticipant] = useState<string>("");
 
   function handleAddParticipant() {
-    if (participants.includes("Laura")) {
+    if (participants.includes(participant)) {
       return Alert.alert(
-        "Atenção!",
+        "Cuidado!",
         "Já existe um participante na lista com esse nome"
       );
     }
-    console.log("Adicionar participante");
+
+    if (participant.length === 0) {
+      return Alert.alert(
+        "Atenção!",
+        "Você precisa digitar o nome do participante para adiciona-lo a lista."
+      );
+    }
+
+    setParticipants((prevState) => [...prevState, participant]);
+    setParticipant("");
   }
 
   function handleRemoveParticipant(name: string) {
     Alert.alert("Atenção", `Deseja remover o participante ${name}?`, [
       {
         text: "Sim",
-        onPress: () => Alert.alert("Participante deletado!"),
+        onPress: () => {
+          Alert.alert("Participante deletado!");
+          setParticipants(
+            participants.filter((participant) => participant != name)
+          );
+        },
       },
       {
         text: "Não",
         style: "cancel",
       },
     ]);
-    console.log("Remover participante:", name);
   }
 
   return (
@@ -61,6 +64,8 @@ export default function Home() {
           placeholder="Digite o nome do participante"
           placeholderTextColor="#6b6b6b"
           keyboardType="default"
+          value={participant}
+          onChangeText={setParticipant}
         />
         {/* TouchableOpacity é um componente que detecta toques do usuário */}
         <TouchableOpacity style={styles.button} onPress={handleAddParticipant}>
