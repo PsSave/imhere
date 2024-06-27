@@ -3,7 +3,7 @@ import {
   TextInput,
   View,
   TouchableOpacity,
-  ScrollView,
+  FlatList,
 } from "react-native";
 import { styles } from "./styles";
 import Participant from "../../components/Participant";
@@ -50,15 +50,26 @@ export default function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {participants.map((participant, index) => (
+      <FlatList
+        data={participants} // passa os dados da lista
+        keyExtractor={(item) => item} // passa qual vai ser a chave estraida
+        renderItem={(
+          { item, index } // renderiza o item
+        ) => (
           <Participant
             key={index}
-            name={participant}
-            onRemove={() => handleRemoveParticipant(participant)}
+            name={item}
+            onRemove={() => handleRemoveParticipant(item)}
           />
-        ))}
-      </ScrollView>
+        )}
+        showsVerticalScrollIndicator={false} // desativa a rolagem
+        ListEmptyComponent={() => (
+          <Text style={styles.listEmptyText}>
+            Não há participantes? Adicione agora mesmo um novo participante a
+            sua lista de presença
+          </Text>
+        )}
+      />
     </View>
   );
 }

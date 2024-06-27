@@ -55,4 +55,10 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 24,
   },
+
+  listEmptyText: {
+    color: "#f5f5f5",
+    fontSize: 15,
+    textAlign: "center",
+  },
 });
